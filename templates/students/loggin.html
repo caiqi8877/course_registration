@@ -1,0 +1,17 @@
+{% load staticfiles %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'students/style.css' %}" />
+
+<p> {{name}} have successfully log in</p>
+<p> you have learned the courses: </p>
+<ul>
+	{% for course in course_list %}
+		<li>{{course.course_name}}</li>
+	{% endfor %}
+</ul>
+
+<a href="{% url 'students:courses' %}">link to courses
+	
+</a>
+
+

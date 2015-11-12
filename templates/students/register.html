@@ -1,0 +1,22 @@
+{% load staticfiles %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'students/style.css' %}" />
+<script type="text/javascript" src="{% static 'students/script.js' %}"></script>
+
+
+<p>register</p>
+<form action="/students/createAccount/" method="post">
+	{% csrf_token %}
+	<label>name</label>
+	<input type="text" name="name"></input>
+	<br>
+	<label>Account</label>
+	<input type="text" name="account"></input>
+	<br>
+	<label>password</label>
+	<input type="password" name="password"></input>
+	<br>
+	<input type="submit"></form>
+<form>
+
+<a onclick="goBack()"><img class="pic1" src="{% static "students/images/back.png" %}" alt="Go back"></img></a>

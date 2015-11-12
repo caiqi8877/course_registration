@@ -1,0 +1,29 @@
+{% load staticfiles %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'students/style.css' %}" />
+<script type="text/javascript" src="{% static 'students/script.js' %}"></script>
+
+<p> {{name}} has successfully log in</p>
+<p> you have learned the courses: </p>
+
+<form action="/students/{{p_id}}/dropCourse/" method="post">
+{% csrf_token %}
+	<ul>
+		{% if courses %}
+			{% for course in courses %}
+				<li>{{course.course_name}} &nbsp;<span><button type="submit" name="course" value="{{course.id}}"><img class="icon" src={% static "students/images/delete.jpg" %}></img></button></span>
+				</li>
+
+				<!-- <input class="icon" type="image" name="course" value="{{course.course_text}}" src={% static "students/images/delete.jpg" %}></input></li> -->
+			{% endfor %}
+		{% endif %}
+	</ul>
+</form>
+
+<a href="{% url 'students:courses' p_id %}">go to select courses
+	
+</a>
+
+<a href="http://localhost:8000/students"><img class="pic1" src="{% static "students/images/back.png" %}" alt="Go back"></img></a>
+
+

@@ -1,0 +1,28 @@
+li a {
+    color: green;
+}
+body {
+    background: white url("images/background.gif") no-repeat right bottom;
+}
+img {
+	height : 40px;
+	width : 140px;
+}
+.pic{
+	height : 40px;
+	width : 140px;
+}
+
+.icon{
+	height : 20px;
+	width : 20px;
+}
+
+.pic1{
+	height : 80px;
+	width : 80px;
+}
+
+.r{
+	color:red;
+}

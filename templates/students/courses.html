@@ -1,0 +1,27 @@
+{% load staticfiles %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'students/style.css' %}" />
+
+<script type="text/javascript" src="{% static 'students/script.js' %}"></script>
+
+
+<body >
+
+<form action="/students/{{ person_id }}/chooseCourse/" method="post">
+{% csrf_token %}
+{% for course in courses %}
+	<input type ="checkbox" name="{{course.course_name}}" value="1">{{course.course_name}}<br> Max students allow is {{course.max_number}}<br> Studnets has chosen is {{course.number}}</input>
+	<br>
+	<br>
+{% endfor %}
+<br>
+<input class="pic1" type="image" src="{% static "students/images/select.png" %}" alt="My image"></input>
+<span><a onclick="goBack()"><img class="pic1" src="{% static "students/images/back.png" %}" alt="Go back"></img></a></span>
+</form>
+
+
+
+
+</body>
+
+
