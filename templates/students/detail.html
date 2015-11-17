@@ -1,29 +1,37 @@
 {% load staticfiles %}
 
 <link rel="stylesheet" type="text/css" href="{% static 'students/style.css' %}" />
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 <script type="text/javascript" src="{% static 'students/script.js' %}"></script>
 
-<p> {{name}} has successfully log in</p>
-<p> you have learned the courses: </p>
 
-<form action="/students/{{p_id}}/dropCourse/" method="post">
-{% csrf_token %}
-	<ul>
-		{% if courses %}
-			{% for course in courses %}
-				<li>{{course.course_name}} &nbsp;<span><button type="submit" name="course" value="{{course.id}}"><img class="icon" src={% static "students/images/delete.jpg" %}></img></button></span>
-				</li>
 
-				<!-- <input class="icon" type="image" name="course" value="{{course.course_text}}" src={% static "students/images/delete.jpg" %}></input></li> -->
-			{% endfor %}
-		{% endif %}
-	</ul>
-</form>
+<div class="alienMid2">
+	<h4 class="tablewidth"> {{name}} has successfully log in, you have selected the courses: </h4>
+	<br>
+	<form action="/students/{{p_id}}/dropCourse/" method="post">
+	{% csrf_token %}
+			{% if courses %}
+			<table class = "table table-striped tablewidth">
+				{% for course in courses %}
+					<tr>
+						<td>{{course.course_name}} </td>
+						<td>Studnets / Maximum Students are {{course.number}}/{{course.max_number}}</td>
+						<td><button type="submit" name="course" value="{{course.id}}"><img class="icon" src={% static "students/images/delete.jpg" %}></img></button></td>
+					</tr>
+					
 
-<a href="{% url 'students:courses' p_id %}">go to select courses
-	
-</a>
+					<!-- <input class="icon" type="image" name="course" value="{{course.course_text}}" src={% static "students/images/delete.jpg" %}></input></li> -->
+				{% endfor %}
+			</table>
+			{% endif %}
+	</form>
 
-<a href="http://localhost:8000/students"><img class="pic1" src="{% static "students/images/back.png" %}" alt="Go back"></img></a>
 
+	<a href="{% url 'students:courses' p_id %}"><img class="pic3" src="{% static "students/images/select_course.png" %}" alt="Go back"></img></a>
+		
+
+
+	<a class="picRegister" href="{% url 'students:index'%}"><img class="pic1" src="{% static "students/images/back.png" %}" alt="Go back"></img></a>
+</div>
 

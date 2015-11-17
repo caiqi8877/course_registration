@@ -1,22 +1,24 @@
 {% load staticfiles %}
 
 <link rel="stylesheet" type="text/css" href="{% static 'students/style.css' %}" />
-<script type="text/javascript" src="{% static 'students/script.js' %}"></script>
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 
-
-<p>register</p>
-<form action="/students/createAccount/" method="post">
+<div class="alienMid">
+<h4 class="tablewidth"> Fill in your information below </h4>
+	<br>
+<form action="/students/registerValid/" method="post">
 	{% csrf_token %}
-	<label>name</label>
-	<input type="text" name="name"></input>
+	<input class="form-control" type="text" name="name" placeholder="name"></input>
 	<br>
-	<label>Account</label>
-	<input type="text" name="account"></input>
+	<input class="form-control" type="text" name="account" placeholder="account"></input>
 	<br>
-	<label>password</label>
-	<input type="password" name="password"></input>
+	<input class="form-control" type="password" name="password" placeholder="password"></input>
 	<br>
-	<input type="submit"></form>
-<form>
+	{% if error_message %}
+    	<p class="r">{{ error_message }}</p>
+	{% endif %}
+	<input class="pic2" type="image" src="{% static "students/images/submit.jpg" %}" alt="submit"></input>
 
-<a onclick="goBack()"><img class="pic1" src="{% static "students/images/back.png" %}" alt="Go back"></img></a>
+<form>
+<a href={% url "students:index"%}><img class="pic1 picRegister" src="{% static "students/images/back.png" %}" alt="Go back"></img></a>
+</form>

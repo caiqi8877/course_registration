@@ -23,6 +23,51 @@ img {
 	width : 80px;
 }
 
+.pic3{
+	height : 80px;
+	width : 160px;
+}
+
+.pic2{
+	height : 100px;
+	width : 100px;
+	margin-top: -10px;
+}
+
 .r{
 	color:red;
+}
+
+.alienMid2{
+	margin-left: 500px;
+	margin-right: 500px;
+	margin-top: 100px;
+	margin-bottom: 100px;
+}
+
+.alienMid{
+	margin-left: 600px;
+	margin-right: 600px;
+	margin-top: 100px;
+	margin-bottom: 100px;
+}
+
+.alienMid3{
+	margin-left: 770px;
+	margin-right: 770px;
+	margin-top: 100px;
+	margin-bottom: 100px;
+}
+.picRegister{
+	float: right;
+}
+
+.tablewidth{
+    border-collapse: collapse;
+    width:100%;
+    text-align: center;
+}
+
+.tablewidth th{
+	text-align: center;
 }
